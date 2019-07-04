@@ -4,144 +4,88 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="" />
-<link rel="mask-icon" type="" href="" color="#111" />
-<title>Coming Soon</title>
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<title>CodePen - animated menu indicator — week 27/52</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <style>
-      /* Structure */
-html,
+      @import url("https://fonts.googleapis.com/css?family=DM+Sans:500,700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
 body {
-  height: 100%;
-}
-
-body p {
-  color: #696969;
-  font-family: "Muli", arial, sans-serif;
-}
-
-body h1 {
-  color: #262626;
-  font-family: 'Roboto';
-}
-
-
-.cover {
-  background: #121212;
-  background-size: cover;
-  display: table;
-  width: 100%;
-  height: 100%; /* For at least Firefox */
-  min-height: 100%;
   text-align: center;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/debut_light.png");
 }
 
-.cover-inner {
-  display: table-cell;
-  vertical-align: middle;
+.nav {
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 0 20px;
+  border-radius: 40px;
+  box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
 }
 
-.inner {
-  padding: 30px;
+.nav-item {
+  color: #83818c;
+  padding: 20px;
+  text-decoration: none;
+  transition: .3s;
+  margin: 0 6px;
+  z-index: 1;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  position: relative;
+}
+.nav-item:before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #dfe2ea;
+  border-radius: 8px 8px 0 0;
+  opacity: 0;
+  transition: .3s;
 }
 
-header {
-  margin: 0 auto;
-  max-width: 800px;
+.nav-item:not(.is-active):hover:before {
+  opacity: 1;
+  bottom: 0;
 }
 
-/* Forms */
-input[type="text"] {
-  background: #303030; /*#121823*/
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
-  border-bottom: 3px solid #262626;
-  color: #eee;
-  padding: 5px;
+.nav-item:not(.is-active):hover {
+  color: #333;
 }
 
-input[type="text"]:focus {
-  outline: none;
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  transition: .4s;
+  height: 5px;
+  z-index: 1;
+  border-radius: 8px 8px 0 0;
 }
 
-button {
-  background: DimGray;
-  border: 3px solid DimGray;
-  border-radius: 100%;
-  margin: 10px 25px;
-}
-
-button:hover {
-  color: black;
-}
-
-button:focus {
-  outline: none;
-}
-
-/* Text Colors */
-
-.text-white {
-  color: #eee;
-}
-
-.silver {
-  color: silver;
-}
-
-.silver:hover {
-  color: black;
-}
-
-.light-black {
-  color: #262626;
-}
-
-/* BG Colors */
-.black-bg {
-  background: #121212;
-}
-
-.light-black-bg {
-  background: #262626;
-}
-
-.dimgray-bg {
-  background: DimGray;
-}
-
-.silver-bg {
-  background: silver;
-}
-
-.white-bg {
-  background: #eee;
-}
-
-
-/* Fonts */
-.headline {
-  font: 500 100px 'Roboto';
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.muli {
-  font: 400 14px/1.5 'Muli';
-}
-
-/* Lines  */
-.border-line {
-  border-top: 2px solid #262626;
-  margin: 15px auto;
-  max-width: 350px;
-}
-
-@media (max-width: 450px) {
-	.headline {
-    font-size: 70px;
+@media (max-width: 580px) {
+  .nav {
+    overflow: auto;
   }
 }
+
     </style>
 <script>
   window.console = window.console || function(t) {};
@@ -153,36 +97,39 @@ button:focus {
 </script>
 </head>
 <body translate="no">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Coming Soon</title>
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli:400">
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-</head>
-<div class="cover">
-<div class="cover-inner">
-<header class="inner">
-<div class="border-line"></div>
-<h1 class="light-black headline">coming soon</h1>
-<div class="border-line">20/07/2019</div>
-<p class="muli inner"></p>
-</header>
-<form class="muli inner">
+<nav class="nav">
+<a href="#" class="nav-item is-active" active-color="orange">Home</a>
+<a href="#" class="nav-item" active-color="green">About</a>
+<a href="#" class="nav-item" active-color="blue">Testimonials</a>
+<a href="#" class="nav-item" active-color="red">Blog</a>
+<a href="#" class="nav-item" active-color="rebeccapurple">Contact</a>
+<span class="nav-indicator"></span>
+</nav>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script id="rendered-js">
+      const indicator = document.querySelector('.nav-indicator');
+const items = document.querySelectorAll('.nav-item');
 
-</form>
-</div>
-</div>
-<div class="container-fluid">
-<h1>color palette</h1>
-<p class="black-bg text-white inner">black: #121212 // cover background</p>
-<p class="light-black-bg text-white inner">light-black: #262626 // headline text</p>
-<p class="dimgray-bg text-white inner">DimGray: #696969 // paragraph text</p>
-<p class="silver-bg inner">silver: #C0C0C0 // button color</p>
-<p class="white-bg inner">white: #eee // form input text</p>
-</div>
+function handleIndicator(el) {
+  items.forEach(item => {
+    item.classList.remove('is-active');
+    item.removeAttribute('style');
+  });
+
+  indicator.style.width = `${el.offsetWidth}px`;
+  indicator.style.left = `${el.offsetLeft}px`;
+  indicator.style.backgroundColor = el.getAttribute('active-color');
+
+  el.classList.add('is-active');
+  el.style.color = el.getAttribute('active-color');
+}
+
+
+items.forEach((item, index) => {
+  item.addEventListener('click', e => {handleIndicator(e.target);});
+  item.classList.contains('is-active') && handleIndicator(item);
+});
+      //# sourceURL=pen.js
+    </script>
 </body>
 </html>
