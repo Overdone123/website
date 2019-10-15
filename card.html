@@ -1,1 +1,84 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="" href="" />
+<link rel="mask-icon" type="" href="" color="#111" />
+<title>Arda</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+
+<div id="stripes" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<div id="app">
+<h1 class="title">Check your card.<span class="safe"></span> </h1>
+<h2 class="subtitle">Check now!<span class="free"></span></h2><input id="cc" type="text" class="input" name="cc" placeholder="0987654321098765">
+<button class="submit" id="checkbtn" disabled="true">Check now</button>
+</div>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script id="rendered-js">
+      const checkbtn = document.getElementById("checkbtn");
+const app = document.getElementById("app");
+const ccinput = document.getElementById("cc");
+
+const ValidateCreditCardNumber = () => {
+  const ccNum = document.getElementById("cc").value;
+  const visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  const mastercardRegEx = /^(?:5[1-5][0-9]{14})$/;
+  const amexpRegEx = /^(?:3[47][0-9]{13})$/;
+  const discovRegEx = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+  let isValid = false;
+
+  if (visaRegEx.test(ccNum)) {
+    isValid = true;
+  } else if (mastercardRegEx.test(ccNum)) {
+    isValid = true;
+  } else if (amexpRegEx.test(ccNum)) {
+    isValid = true;
+  } else if (discovRegEx.test(ccNum)) {
+    isValid = true;
+  }
+
+  if (isValid) {
+    document.getElementById("checkbtn").disabled = false;
+    document.getElementById("cc").style.boxShadow =
+    "10px 1px 41px -10px rgba(0,255,0,0.75)";
+  } else {
+    document.getElementById("checkbtn").disabled = true;
+    document.getElementById("cc").style.boxShadow =
+    "10px 1px 41px -10px rgba(255,0,0,0.75)";
+  }
+};
+
+ccinput.addEventListener("keyup", e => {
+  ValidateCreditCardNumber();
+});
+alert('um hello check ur card its very safe lol')
+checkbtn.addEventListener("click", e => {
+  const safetyfirst = Math.round(Math.random()) ? "SAFE" : "NOT SAFE";
+  let html = '<div class="jumbo"><h1>Your card is: ';
+  html += safetyfirst;
+  html += "</h1></div>";
+
+  document.body.innerHTML = html;
+
+  if (safetyfirst === "SAFE") {
+    document.querySelector(".jumbo").style.backgroundColor = "green";
+
+  }
+});
+    </script>
+</body>
+</html>
+
