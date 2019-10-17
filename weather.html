@@ -1,0 +1,737 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="" />
+<link rel="mask-icon" type="" href="" color="#111" />
+<title>Weather</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://sonorangirl.github.io/Weather/css/weather-icons.min.css'>
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Fjalla+One|Average");
+.srt {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.centered {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-family: "Fjalla One", sans-serif;
+  background-color: #068D9D;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Fjalla One", sans-serif;
+  color: #FFF6F4;
+  text-align: center;
+}
+
+p {
+  font-family: "Average", serif;
+  color: #FFF6F4;
+  text-align: center;
+}
+
+body > .container-fluid {
+  padding: 60px 15px 0;
+}
+
+.container-fluid .text-muted {
+  margin: 20px 0;
+}
+
+.btn:focus, a:focus {
+  outline: none !important;
+}
+
+.navbar {
+  height: 70px;
+  background-color: transparent;
+  background: transparent;
+  border: none;
+  color: #FFF6F4;
+  z-index: 100;
+  margin-bottom: 0;
+  border-radius: 0;
+  transition: background-color 1s ease 0s;
+}
+
+.navbar-default .navbar-brand {
+  margin-top: 10px;
+  color: #FFF6F4;
+  font-weight: 400;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #A4D4D8;
+}
+
+.navbar-default .navbar-brand:focus {
+  color: #FFF6F4;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #FFF6F4;
+  font-weight: 500;
+  font-size: 1em;
+  text-transform: lowercase;
+  margin: 10px 5px 5px 5px;
+  border-radius: 5px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
+  color: #FFF6F4;
+  border: 1px solid #FFF6F4;
+}
+
+.navbar-default .navbar-nav > li > a:visited {
+  color: #FFF6F4;
+  text-decoration: none;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background-color: transparent;
+  color: #FFF6F4;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #FFF6F4;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #757780;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  color: #FFF6F4;
+  background-color: #FFF6F4;
+}
+
+.navbar-default .navbar-collapse.collapse.in ul {
+  background-color: #757780;
+}
+
+.main {
+  max-width: 600px;
+}
+
+.current-temp, .location-name {
+  font-size: 2em;
+}
+
+.temperature p {
+  color: #757780;
+}
+
+.location h4 {
+  color: #FFF6F4;
+}
+
+.panel-footer {
+  background-color: #A4D4D8;
+}
+
+.modal-title {
+  color: #068D9D;
+}
+
+.week-forecast {
+  display: none;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  clear: both;
+  padding-top: 20px;
+  background-color: white;
+}
+
+.footer p {
+  color: #A4D4D8;
+}
+
+.main-icon {
+  font-size: 4em;
+  margin-top: 3%;
+}
+
+#cityName {
+  background-color: #068D9D;
+  color: #FFF6F4;
+  border-color: #068D9D;
+}
+
+#cityName:hover {
+  background-color: #FFF6F4;
+  color: #068D9D;
+}
+
+.btn-secondary {
+  background-color: #A4D4D8;
+  color: #FFF6F4;
+  border-color: #A4D4D8;
+}
+
+.btn-secondary:hover {
+  background-color: #FFF6F4;
+  color: #A4D4D8;
+}
+
+#temp-units {
+  padding: 16px;
+}
+
+#temp-units #Fahrenheit, #temp-units #Celsius {
+  background-color: #FFF6F4;
+  color: #A4D4D8;
+  border-color: #A4D4D8;
+}
+
+#temp-units #Fahrenheit.active, #temp-units #Celsius.active {
+  background-color: #A4D4D8;
+  color: #FFF6F4;
+}
+</style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="#" data-toggle="modal" data-target="#changeCity">Change Location</a>
+</div>
+<div id="navbar" class="collapse navbar-collapse">
+<ul class="nav navbar-nav navbar-right">
+<li id="nav-degree">
+<div class="btn-group" id="temp-units" data-toggle="buttons">
+<label id="Fahrenheit" class="btn btn-primary active">
+<input type="radio" name="units" id="F" autocomplete="off" checked>°F
+</label>
+<label id="Celsius" class="btn btn-primary">
+<input type="radio" name="units" id="C" autocomplete="off">°C
+</label>
+</div>
+</li>
+<li id="nav-contact"><a href="https://ardatiryaki.com/#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="modal fade" id="changeCity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<h4 class="modal-title" id="myModalLabel">Enter your City</h4>
+</div>
+<div class="modal-body">
+<form class="form-inline">
+<div class="form-group">
+<div class="input-group">
+<input type="text" class="form-control" placeholder="Where Are You?">
+</div>
+</div>
+<button id="cityName" type="button" class="btn btn-primary" data-dismiss="modal">Change Location</button>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div> 
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12">
+<h1 class="text-center">Whats The Weather</h1>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-8 centered icon">
+<div class="panel panel-secondary main centered">
+<div class="panel-heading icon">
+<h3 class="panel-title main-icon"><img class="loading-icon" style="height:80px;width:80px;" src="https://ibb.co/XDfpGBL"></h3>
+</div>
+<div class="panel-body temperature">
+<p class="centered current-temp">Getting your Weather...</p>
+</div>
+<div class="panel-footer location">
+<h4 class="centered location-name">Location</h4>
+</div>
+</div>
+</div>
+</div>
+<div class="row week-forecast">
+<div class="col-xs-6 col-sm-3 forecast">
+<div class="panel panel-secondary">
+<div class="panel-heading icon">
+<h3 class="panel-title">Icon Here</h3>
+</div>
+<div class="panel-body temperature">
+<p class="centered">Current Temp Here</p>
+</div>
+<div class="panel-footer location">
+<h5 class="centered day">Forecast Day</h5>
+</div>
+</div>
+</div>
+<div class="col-xs-6 col-sm-3 forecast">
+<div class="panel panel-secondary">
+<div class="panel-heading icon">
+<h3 class="panel-title">Icon Here</h3>
+</div>
+<div class="panel-body temperature">
+<p class="centered">Current Temp Here</p>
+</div>
+<div class="panel-footer location">
+<h5 class="centered day">Forecast Day</h5>
+</div>
+</div>
+</div>
+<div class="col-xs-6 col-sm-3 forecast">
+<div class="panel panel-secondary">
+<div class="panel-heading icon">
+<h3 class="panel-title">Icon Here</h3>
+</div>
+<div class="panel-body temperature">
+<p class="centered">Current Temp Here</p>
+</div>
+<div class="panel-footer location">
+<h5 class="centered day">Forecast Day</h5>
+</div>
+</div>
+</div>
+<div class="col-xs-6 col-sm-3 forecast">
+<div class="panel panel-secondary">
+<div class="panel-heading icon">
+<h3 class="panel-title">Icon Here</h3>
+</div>
+<div class="panel-body temperature">
+<p class="centered">Current Temp Here</p>
+</div>
+<div class="panel-footer location">
+<h5 class="centered day">Forecast Day</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-muted">Whats the Weather like Today?</p>
+</div>
+</footer>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script id="rendered-js">
+      var base = "https://api.openweathermap.org/data/2.5/weather";
+var lat = "";
+var lon = "";
+var APIkey = "&appid=392e8e512b039c6ddb7ee382f837b322";
+var units = "&units=imperial";
+var api = "";
+var city = "";
+var weatherIcons;
+var newTemperature;
+var tempColor = "";
+
+
+//creates geolocated api call
+function callGeoAPI() {
+  api = base + lat + lon + APIkey + units;
+  console.log(api);
+}
+
+//creates City Name api call
+function callCityAPI() {
+  api = base + city + APIkey + units;
+  console.log(api);
+}
+
+
+$(document).ready(function () {
+
+  function getOpenWeatherData() {
+    //call OpenWeather api
+    $.getJSON(api, function (data) {
+
+      console.log(data);
+      //update HTML with current temp and city name
+      $('.current-temp').html(Math.round(data.main.temp) + '&deg;');
+      $('.location-name').html(data.name);
+
+
+      //Get Correct Icon
+      var code = data.weather[0].id;
+      var prefix = 'wi wi-owm-';
+      var timeOfDay = "";
+
+      var today = new Date();
+      var hour = today.getHours();
+      console.log(hour);
+
+      if (hour > 6 && hour < 20) {
+        timeOfDay = "day-"; //Day time
+
+      } else {
+        timeOfDay = "night-"; //Night time
+      }
+
+      var icon = prefix + timeOfDay + code;
+
+      $('.main-icon').html('<i class="' + icon + '"></i>');
+
+
+      //Change background color
+      var tempColorMap = {
+        //Extremely Cold Greys
+        "-21": "#D0D5E1",
+        "-20": "#D0D5E1",
+        "-19": "#D0D5E1",
+        "-18": "#C6D0E1",
+        "-17": "#C6D0E1",
+        "-16": "#BDCBE2",
+        "-15": "#BDCBE2",
+        "-14": "#B4C7E3",
+        "-13": "#B4C7E3",
+        "-12": "#ABC2E4",
+        "-11": "#ABC2E4",
+        "-10": "#A1BDE4",
+        "-9": "#A1BDE4",
+        "-8": "#98B9E5",
+        "-7": "#98B9E5",
+        "-6": "#8FB4E6",
+        "-5": "#8FB4E6",
+        "-4": "#86AFE7",
+        "-3": "#86AFE7",
+        "-2": "#7DABE8",
+        "-1": "#7DABE8",
+        //Very Cold Blues/Greys
+        "0": "#7DABE9",
+        "1": "#7DABE9",
+        "2": "#7198DB",
+        "3": "#7198DB",
+        "4": "#6585CE",
+        "5": "#6585CE",
+        "6": "#5972C1",
+        "7": "#5972C1",
+        "8": "#4D5FB4",
+        "9": "#4D5FB4",
+        "10": "#414CA7",
+        "11": "#414CA7",
+        "12": "#35399A",
+        "13": "#35399A",
+        "14": "#29268D",
+        "15": "#29268D",
+        "16": "#1D1380",
+        "17": "#1D1380",
+        "18": "#110172",
+        "19": "#110172",
+        //Cold Blues
+        "20": "#110174",
+        "21": "#110174",
+        "22": "#100A77",
+        "23": "#100A77",
+        "24": "#0F147A",
+        "25": "#0F147A",
+        "26": "#0F1D7D",
+        "27": "#0F1D7D",
+        "28": "#0E2781",
+        "29": "#0E2781",
+        "30": "#0D3184",
+        "31": "#0D3184",
+        "32": "#0D3A87",
+        "33": "#0D3A87",
+        "34": "#0C448A",
+        "35": "#0C448A",
+        "36": "#0B4E8E",
+        "37": "#0B4E8E",
+        "38": "#0B5791",
+        "39": "#0B5791",
+        "40": "#0A6194",
+        "41": "#0A6194",
+        "42": "#0A6A97",
+        "43": "#0A6A97",
+        "44": "#09749B",
+        "45": "#09749B",
+        "46": "#087E9E",
+        "47": "#087E9E",
+        "48": "#0887A1",
+        "49": "#0887A1",
+        "50": "#0791A4",
+        "51": "#0791A4",
+        "52": "#069BA8",
+        "53": "#069BA8",
+        "54": "#06A4AB",
+        "55": "#06A4AB",
+        "56": "#05AEAE",
+        "57": "#05AEAE",
+        "58": "#05B8B2",
+        "59": "#05B8B2",
+        //Mild/Warm  Greens/Yellows
+        "60": "#05B8A4",
+        "61": "#05B8A4",
+        "62": "#1DBE9C",
+        "63": "#1DBE9C",
+        "64": "#35C494",
+        "65": "#35C494",
+        "66": "#4DCA8C",
+        "67": "#4DCA8C",
+        "68": "#65D084",
+        "69": "#65D084",
+        "70": "#71D380",
+        "71": "#71D380",
+        "72": "#89DA78",
+        "73": "#89DA78",
+        "74": "#A1E070",
+        "75": "#A1E070",
+        "76": "#B9E668",
+        "77": "#B9E668",
+        "78": "#D1EC60",
+        "79": "#D1EC60",
+        //Hot Oranges/Reds
+        "80": "#E1E057",
+        "81": "#E1E057",
+        "82": "#F2D54E",
+        "83": "#F2D54E",
+        "84": "#F1BB44",
+        "85": "#F1BB44",
+        "86": "#F1A23B",
+        "87": "#F1A23B",
+        "88": "#F18832",
+        "89": "#F18832",
+        "90": "#F16F29",
+        "91": "#F16F29",
+        "92": "#F15B22",
+        "93": "#F15B22",
+        "94": "#F1481B",
+        "95": "#F1481B",
+        "96": "#F13514",
+        "97": "#F13514",
+        "98": "#F1220D",
+        "99": "#F1220D",
+        //Very Hot Reds/Violets
+        "100": "#F10904",
+        "101": "#F10904",
+        "102": "#F40A1A",
+        "103": "#F40A1A",
+        "104": "#F70C31",
+        "105": "#F70C31",
+        "106": "#FA0E48",
+        "107": "#FA0E48",
+        "108": "#FE105F",
+        "109": "#FE105F",
+        "110": "#FE0F68",
+        "111": "#FE0F68",
+        "112": "#FE0E71",
+        "113": "#FE0E71",
+        "114": "#FE0E7B",
+        "115": "#FE0E7B",
+        "116": "#FE0D84",
+        "117": "#FE0D84",
+        "118": "#FE0C8E",
+        "119": "#FE0C8E",
+        //Super Hot Violets
+        "120": "#FE0C97",
+        "121": "#FE0C97",
+        "122": "#FE0BA1",
+        "123": "#FE0BA1",
+        "124": "#FE0AAA",
+        "125": "#FE0AAA",
+        "126": "#FF0AB4",
+        "127": "#FF0AB4",
+        "128": "#FF0FC3",
+        "129": "#FF0FC3",
+        "130": "#FF14D3",
+        "131": "#FF14D3" };
+
+
+
+      var currentTemp = Math.round(data.main.temp); //gets temperature, rounds it
+
+      //If values are outside of color map range, set them equal to max/min values
+      if (currentTemp < -21) {
+        currentTemp = -21;
+      } else if (currentTemp > 131) {
+        currentTemp = 131;
+      }
+      currentTemp = currentTemp.toString();
+      console.log(currentTemp);
+      tempColor = tempColorMap[currentTemp]; //gets hexcode color for the current temp
+      console.log(tempColor);
+      $('body, html').css('background-color', tempColor);
+      $('.text-muted, i.wi, .current-temp, .location-name').css('color', tempColor);
+      $('.panel-footer').css({
+        'background-color': '#ffffff',
+        'border-top-color': tempColor });
+
+
+      //Degree Units Toggle
+      $('#Fahrenheit, #Celsius').css({
+        'background-color': '#ffffff',
+        'color': tempColor,
+        'border-color': tempColor });
+
+      $('#Fahrenheit.active, #Celsius.active').css({
+        'background-color': tempColor,
+        'color': '#ffffff',
+        'border-color': tempColor });
+
+
+      $('#temp-units label[id="Celsius"]').click(function () {
+        $('#Fahrenheit').css({
+          'background-color': '#ffffff',
+          'color': tempColor });
+
+        $('#Celsius').css({
+          'background-color': tempColor,
+          'color': '#ffffff' });
+
+      });
+
+      $('#temp-units label[id="Fahrenheit"]').click(function () {
+        $('#Celsius').css({
+          'background-color': '#ffffff',
+          'color': tempColor });
+
+        $('#Fahrenheit').css({
+          'background-color': tempColor,
+          'color': '#ffffff' });
+
+      });
+
+
+      //Change footer text
+      var tempRange = data.main.temp;
+      if (tempRange < 20) {
+        $('.text-muted').html('Error....frozen...');
+      } else if (tempRange >= 20 && tempRange < 40) {
+        $('.text-muted').html('Damn its cold');
+      } else if (tempRange >= 40 && tempRange < 60) {
+        $('.text-muted').html('Brrrrrrr.....');
+      } else if (tempRange >= 60 && tempRange < 80) {
+        $('.text-muted').html('Lovely weather we\'re having');
+      } else if (tempRange >= 80 && tempRange < 90) {
+        $('.text-muted').html('It\'s getting hot out here');
+      } else if (tempRange >= 90 && tempRange < 100) {
+        $('.text-muted').html('Yikes its hot outside!');
+      } else if (tempRange >= 100 && tempRange < 110) {
+        $('.text-muted').html('Danger Will Robinson, you\'re melting!');
+      } else if (tempRange >= 110) {
+        $('.text-muted').html('I think you may be on Venus?');
+      }
+
+    });
+  }
+
+  //Get users Location info
+  //Call the FreeGeoIP API for users IP info and then make call to OpenWeather API
+  var freeIP = 'https://freegeoip.net/json/?callback';
+  $.getJSON(freeIP, function (data) {
+    lat += "?lat=" + data.latitude;
+    lon += "&lon=" + data.longitude;
+    console.log(lat, lon);
+    callGeoAPI(); //set API call parameters
+    getOpenWeatherData(); //Get information from API and update HTML
+  });
+
+
+
+  //Changes Location to City Parameter and calls API again
+  $('#cityName').click(function () {
+    var cityName = $('input:text').val();
+    city = "?q=" + cityName;
+    console.log(city);
+    callCityAPI();
+    getOpenWeatherData();
+  });
+
+  //Allow user to change units
+  var unitStatus = "F";
+  var newTemperature;
+
+  function changeUnits() {
+    var oldTemperature = $('.current-temp').html();
+    oldTemperature = oldTemperature.substring(0, oldTemperature.length - 1);
+    if (unitStatus === "F") {
+      newTemperature = (Number(oldTemperature) - 32) * (5 / 9);
+      unitStatus = "C";
+    } else if (unitStatus === "C") {
+      newTemperature = Number(oldTemperature) * (9 / 5) + 32;
+      unitStatus = "F";
+    }
+    newTemperature = Math.round(newTemperature).toString() + '&deg;';
+    $('.current-temp').html(newTemperature);
+  }
+
+  //Change units when user clicks options
+  $('#temp-units label[id="Celsius"]').click(function () {
+    if (unitStatus === "F") {
+      changeUnits();
+    }
+  });
+
+  $('#temp-units label[id="Fahrenheit"]').click(function () {
+    if (unitStatus === "C") {
+      changeUnits();
+    }
+  });
+
+
+});
+    </script>
+</body>
+</html>
