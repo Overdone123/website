@@ -1,282 +1,1017 @@
 
 <!DOCTYPE html>
-<html lang="en" class="lang=" en"">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="https://ibb.co/K5gzvFR" />
+<link rel="shortcut icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/584605755479687178/634818548648247298/circle-cropped.png" />
 <link rel="mask-icon" type="" href="" color="#111" />
 <title>Arda Tiryaki</title>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Arda Tiryaki</title>
 <meta name="description" content="I'm a self taught developer from Brighton & Hove, UK. I'm currently learning Javascript development with FreeCodeCamp and Codecademy. I'm having fun learning more and more!">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#40E0D0" />
 <meta name="msapplication-TileColor" content="#40E0D0" />
-<meta name="author" content="Arda Tiryaki">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<title>Arda Tiryaki</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link href="favicon.ico" rel="shortcut icon">
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Montserrat:400,700">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700,300|Quattrocento");
-.about-tools ul li, .contact-social-icons ul a li {
-  text-align: center; }
 
-.centered {
-  float: none;
-  margin-left: auto;
-  margin-right: auto; }
-
-.break {
-  clear: both;
-  margin-top: 10px; }
-
-@media (min-width: 768px) {
-  .pull-right-sm {
-    float: right !important; }
-
-  .pull-left-sm {
-    float: left !important; } }
-@media (min-width: 992px) {
-  .pull-right-md {
-    float: right !important; }
-
-  .pull-left-md {
-    float: left !important; } }
-@media (min-width: 1200px) {
-  .pull-right-lg {
-    float: right !important; }
-
-  .pull-left-lg {
-    float: left !important; } }
-* {
-  box-sizing: border-box; }
-
-html {
-  position: relative;
-  height: 100%; }
-
-img {
-  width: 100%; }
 
 body {
-  height: 100%;
-  font-family: "Comfortaa", Helvetica, Arial, sans-serif;
-  background-color: #25b79f;
-  /* Margin bottom by footer height */
-  margin-bottom: 60px; }
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	margin: 0;
+	padding: 0;
+}
 
-h1,
-h2,
+h2 {
+	color: #008080;
+	font-weight: 700;
+	font-size: 50px;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: lowercase;
+}
+
+h2:after {
+	content: '';
+	width: 50px;
+	height: 3px;
+	background: #40E0D0;
+	display: block;
+	margin: 15px auto;
+	transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+h2:hover:after {
+	width: 100px;
+}
+
 h3,
 h4,
 h5 {
-  font-family: "Comfortaa", Helvetica, Arial, sans-serif;
-  color: #07374a; }
+	font-family: 'Montserrat', sans-serif;
+}
 
-p {
-  font-family: "Quattrocento", sans-serif;
-  color: #f0f0e6; }
 
-body > .container-fluid {
-  padding: 60px 15px 0; }
+/* SCROLL TO TOP ARROW */
 
-.container-fluid .text-muted {
-  margin: 20px 0; }
+#return-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background: rgba(64, 224, 208, 0.8);
+	width: 50px;
+	height: 50px;
+	display: block;
+	text-decoration: none;
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	display: none;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	z-index: 999;
+}
 
-.btn:focus, a:focus {
-  outline: none !important; }
+#return-to-top span {
+	color: #fff;
+	margin: 0;
+	position: relative;
+	left: 16px;
+	top: 13px;
+	font-size: 19px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
 
-.navbar {
-  height: 70px;
-  background-color: transparent;
-  background: transparent;
-  border: none;
-  color: #f0f0e6;
-  z-index: 100;
-  margin-bottom: 0;
-  border-radius: 0;
-  transition: background-color 1s ease 0s; }
+#return-to-top:hover {
+	background: rgba(64, 224, 208, 1);
+}
+
+#return-to-top:hover span {
+	color: #fff;
+	top: 5px;
+}
+
+
+/* END SCROLL TO TOP ARROW */
+
+
+/* START PRELOADER */
+
+#preloader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #008080;
+	z-index: 99;
+	height: 100%;
+}
+
+#status {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-image: url();
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: -100px 0 0 -100px;
+}
+
+
+/* END PRELOADER */
+
+
+/* start header */
+
+.navbar-fixed-top {
+	background-color: #008080;
+}
 
 .navbar-brand {
-  display: none;
-  margin-top: 10px;
-  color: #f0f0e6;
-  font-weight: 400; }
+	padding: 0px 15px;
+	height: 56px;
+	margin-left: 0;
+}
 
-.navbar-default .navbar-nav > li > a {
-  color: #f0f0e6;
-  font-weight: 500;
-  font-size: 1em;
-  text-transform: lowercase;
-  margin: 10px 5px 5px 5px;
-  border-radius: 5px; }
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
-  color: #f0f0e6;
-  border: 1px solid #f0f0e6; }
-.navbar-default .navbar-nav > li > a:visited {
-  color: #f0f0e6;
-  text-decoration: none; }
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  background-color: transparent;
-  color: #f0f0e6; }
-.navbar-default .navbar-toggle {
-  border-color: #f0f0e6; }
-  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #07374a; }
-  .navbar-default .navbar-toggle .icon-bar {
-    color: #f0f0e6;
-    background-color: #f0f0e6; }
-.navbar-default .navbar-collapse.collapse.in ul {
-  background-color: #07374a; }
+.navbar {
+	margin-bottom: 0px;
+	border: none;
+}
 
-/* Solid class attached on scroll past first section */
-.navbar.solid {
-  background-color: #07374a;
-  transition: background-color 1s ease 0s;
-  box-shadow: 0 0 4px rgba(7, 55, 74, 0.2); }
-  .navbar.solid .navbar-brand {
-    display: inline-block;
-    color: #f0f0e6;
-    transition: color 1s ease 0s; }
-  .navbar.solid .navbar-nav > li > a {
-    color: #f0f0e6;
-    transition: color 1s ease 0s; }
+.navbar-inverse .navbar-toggle:focus,
+.navbar-inverse .navbar-toggle:hover {
+	background-color: #40E0D0;
+}
 
-.cover {
-  padding: 10% 0 10% 0; }
-  .cover.top {
-    padding: 15% 0 10% 0;
-    height: 100vh;
-    display: flex;
-    background-color: #25b79f; }
-  .cover.bottom {
-    padding: 10% 0 10% 0; }
+.navbar-inverse .navbar-toggle {
+	border: none;
+}
 
-.headline {
-  padding-top: 6.25em; }
-  @media screen and (min-width: 768px) {
-    .headline {
-      padding-top: 3.75em; } }
-  @media screen and (min-width: 992px) {
-    .headline {
-      padding-top: 1.5625em; } }
-  @media screen and (min-width: 1200px) {
-    .headline {
-      padding-top: 0px; } }
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+	border: none;
+}
 
-#about {
-  background-color: #07374a; }
-  #about h2 {
-    color: #25b79f; }
+.navbar-toggle .icon-bar {
+	width: 35px;
+	height: 5px
+}
 
-.profile-img {
-  margin-bottom: 15px;
-  width: 120px; }
+#ResponsiveNav li a {
+	font-size: 16px;
+	color: #fff;
+	font-weight: 700;
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	overflow: hidden;
+	-webkit-transition: all .40s ease-in-out;
+	transition: all .40s ease-in-out;
+	font-family: 'Roboto', sans-serif;
+	text-transform: lowercase;
+}
 
-.about, .about-info, .about-tools, .about-last {
-  padding: 4% 10% 1% 10%;
-  font-size: 1.25em; }
-  .about-tools {
-    padding-top: 4.375em;
-    font-weight: 700;
-    font-size: 1.5em; }
-    @media screen and (min-width: 992px) {
-      .about-tools {
-        padding-top: 5.625em; } }
-    .about-tools ul:first-child {
-      padding-left: 0px; }
-    .about-tools ul {
-      color: #25b79f;
-      list-style: none; }
-      .about-tools ul li {
-        padding-top: 0.75em; }
-  .about-last {
-    padding-top: 3.125em;
-    padding-bottom: 0;
-    font-size: 1.125em; }
-    @media screen and (min-width: 992px) {
-      .about-last {
-        padding-top: 0; } }
-    .about-last p {
-      color: #25b79f; }
+#ResponsiveNav li a:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	height: 3px;
+	background: #40E0D0;
+	-webkit-transition: .35s;
+	transition: .35s;
+}
+
+#ResponsiveNav li a:hover {
+	color: #40E0D0;
+}
+
+#ResponsiveNav ul li a:hover:after,
+#ResponsiveNav ul li a:focus:after,
+#ResponsiveNav ul li a:active:after {
+	width: 70%;
+}
+
+button.navbar-toggle.collapsed {
+	background-color: #008080;
+	border: none;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+	background-color: #40E0D0;
+	border: none;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+
+
+/*/ start hamburger menu desktop overwrite bootstrap /*/
+
+.navbar-header {
+	float: none;
+}
+
+.navbar-toggle {
+	display: block;
+}
+
+.navbar-collapse.collapse {
+	display: none!important;
+}
+
+.navbar-nav {
+	float: none!important;
+}
+
+.navbar-nav>li {
+	float: none;
+}
+
+.navbar-collapse.collapse.in {
+	display: block !important;
+}
+
+
+/*/ end hamburger menu desktop overwrite bootstrap /*/
+
+
+/*/ start intro /*/
+
+.intro {
+	display: table;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	color: white;
+	background: url("https://cdn.discordapp.com/attachments/631187602883608586/634789348902043652/20296_SHADE_pitch-black.png") no-repeat top center scroll;
+	background-size: cover;
+	-o-background-size: cover;
+}
+
+.intro .intro-body {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 15% 0;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.brand-heading {
+	font-size: 100px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	text-align: left;
+	color: #40E0D0;
+}
+
+.intro .intro-body .intro-text {
+	font-size: 25px;
+	font-family: 'Montserrat', sans-serif;
+	text-align: left;
+}
+
+span.city {
+	background-color: #40E0D0;
+	color: #fff;
+	border-radius: 4px;
+	width: 15px;
+}
+
+@media (min-width: 768px) {
+	.intro {
+		height: 100%;
+		padding: 0;
+	}
+	.intro .intro-body .brand-heading {
+		font-size: 130px;
+	}
+	.intro .intro-body .intro-text {
+		font-size: 35px;
+	}
+}
+
+.mouse-warp {
+	margin: 40px auto;
+	display: block;
+	width: 28px;
+	opacity: 0.5;
+}
+
+.mouse {
+	width: 28px;
+	height: 50px;
+	border: 2px solid #fff;
+	border-radius: 14px;
+}
+
+.scroll {
+	width: 4px;
+	height: 4px;
+	border-radius: 2px;
+	background: #fff;
+	position: relative;
+	left: 10px;
+	-webkit-animation: scrolls 1.3s ease-out infinite;
+}
+
+@-webkit-keyframes scrolls {
+	0% {
+		top: 8px;
+		opacity: 0;
+		-webkit-transform: scaleY(1) scaleX(1);
+	}
+	5% {
+		top: 8px;
+		opacity: 0.8;
+		-webkit-transform: scaleY(1.2) scaleX(1.2);
+	}
+	10% {
+		top: 8px;
+		opacity: 1;
+		-webkit-transform: scaleY(1.6) scaleX(1.6);
+	}
+	15% {
+		top: 8px;
+		opacity: 1;
+		-webkit-transform: scaleY(1.2) scaleX(1.2);
+	}
+	20% {
+		top: 8px;
+		opacity: 1;
+		-webkit-transform: scaleY(1.2) scaleX(1.2);
+	}
+	30% {
+		top: 15px;
+		opacity: 1;
+		-webkit-transform: scaleY(1.2) scaleX(1.2);
+	}
+	100% {
+		top: 30px;
+		opacity: 0;
+		-webkit-transform: scaleY(1.2) scaleX(0.8);
+	}
+}
+
+
+/* End Scroll Down Indicator */
+
+
+/*/ end intro /*/
+
+
+/*/ start about /*/
+
+#about-me {
+	margin-top: 45px;
+}
+
+#about-me h2 {
+	font-weight: 700;
+	margin-top: 22px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.about-intro-text p {
+	float: right;
+}
+
+.about-intro-text span {
+	color: #40E0D0;
+	font-weight: 700;
+}
+
+.about-intro-text .fa-beer {
+	color: #40E0D0;
+	font-size: 20px;
+}
+
+.button-group {
+	cursor: pointer;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+
+.text {
+	background: #008080;
+	color: #fff;
+	font-size: 18px;
+	height: 50px;
+	padding: 0 25px;
+	line-height: 50px;
+}
+
+.icon-cv {
+	font-size: 30px;
+	width: 50px;
+	height: 50px;
+	line-height: 40px;
+	box-sizing: border-box;
+	border: 4px solid #008080;
+	border-left: none;
+	-webkit-transition: 600ms -webkit-transform ease-in-out;
+	transition: 600ms -webkit-transform ease-in-out;
+	transition: 600ms transform ease-in-out;
+	transition: 600ms transform ease-in-out, 600ms -webkit-transform ease-in-out;
+	-webkit-transform: rotateY(90deg);
+	transform: rotateY(90deg);
+	-webkit-transform-origin: left;
+	transform-origin: left;
+	color: #008080;
+	background: #fff;
+	text-align: center;
+}
+
+a .fa-arrow-circle-down {
+	color: #008080;
+}
+
+.button-group:hover .icon-cv {
+	-webkit-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+
+.button-group {
+	-webkit-perspective: 200px;
+	perspective: 200px;
+	-webkit-perspective-origin: calc(100% - 50px);
+	perspective-origin: calc(100% - 50px);
+	margin-top: 5%;
+}
+
+.about-inner {
+	position: relative;
+	padding: 0;
+	overflow: hidden;
+}
+
+.about-inner>img {
+	display: block;
+	min-width: 100%;
+	height: auto;
+}
+
+.about-ct .textbox-about {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}
+
+.about-ct:hover .textbox-about {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.textbox-about {
+	-webkit-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+}
+
+div.button-social {
+	border: 2px solid #fff;
+	padding: 12px 18px;
+	-webkit-transition: all .35s;
+	transition: all .35s;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	margin-top: 25px;
+	font-size: 18px;
+	color: #fff;
+	margin: 5% 5%;
+}
+
+div.button-social a {
+	color: #fff;
+	font-size: 18px;
+	margin: 15px;
+}
+
+div.button-social a:hover {
+	color: #40E0D0;
+}
+
+.button-group:focus,
+.icon-cv:focus,
+.text:focus {
+	outline: 0;
+}
+
+
+/*/ start count stats /*/
+
+#counter-stats {
+	margin-top: 50px;
+	width: 100%;
+	height: auto;
+}
+
+.stats {
+	text-align: center;
+	font-size: 35px;
+	font-weight: 700;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: lowercase;
+}
+
+.stats .fa {
+	color: #008080;
+	font-size: 60px;
+}
+
+
+/*/ end count stats /*/
+
+
+/*/ end about /*/
+
+
+/*/ start about work experience /*/
+
+#experience {
+	margin-top: 20px;
+}
+
+#experience h2 {
+	font-weight: 700;
+	margin-top: 22px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.timeline-label h4 {
+	margin-top: 0;
+	font-size: 30px;
+	color: #40E0D0;
+	padding: 16px 0px;
+	font-weight: 700;
+}
+
+.timeline-label p {
+	color: #696969;
+	padding: 8px 0px;
+	line-height: 27px;
+}
+
+.button-group-li {
+	cursor: pointer;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+
+.timeline-label a {
+	text-decoration: none;
+}
+
+.text-timeline {
+	background: #40E0D0;
+	color: #fff;
+	font-size: 18px;
+	height: 40px;
+	padding: 0 25px;
+	line-height: 40px;
+}
+
+.icon-li {
+	font-size: 20px;
+	width: 40px;
+	height: 40px;
+	line-height: 30px;
+	box-sizing: border-box;
+	border: 4px solid #40E0D0;
+	border-left: none;
+	-webkit-transition: 600ms -webkit-transform ease-in-out;
+	transition: 600ms -webkit-transform ease-in-out;
+	transition: 600ms transform ease-in-out;
+	transition: 600ms transform ease-in-out, 600ms -webkit-transform ease-in-out;
+	-webkit-transform: rotateY(90deg);
+	transform: rotateY(90deg);
+	-webkit-transform-origin: left;
+	transform-origin: left;
+	color: #40E0D0;
+	background: #fff;
+	text-align: center;
+}
+
+.button-group-li:hover .icon-li {
+	-webkit-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+
+.button-group-li {
+	-webkit-perspective: 200px;
+	perspective: 200px;
+	-webkit-perspective-origin: calc(100% - 40px);
+	perspective-origin: calc(100% - 40px);
+}
+
+.timeline-label {
+	padding-left: 7%;
+	margin-top: 2%;
+}
+
+.col-exp {
+	margin-top: 2%;
+}
+
+.timeline .timeline-experience {
+	position: relative;
+	float: left;
+	margin-left: 32px;
+	padding-left: 64px;
+	border-left: 2px solid #ccc;
+}
+
+.timeline .timeline-experience-info h5 {
+	margin-top: 0;
+	margin-bottom: 0.333em;
+	font-size: 18px;
+	color: #40E0D0;
+	font-weight: 700;
+}
+
+.timeline .timeline-experience-info .timeline-role {
+	font-size: 16px;
+	color: #008080;
+	font-weight: 600;
+}
+
+.timeline .timeline-experience-info p {
+	font-size: 12px;
+	color: #333;
+	line-height: 27px;
+}
+
+.timeline time {
+	display: block;
+	width: 65px;
+	color: #ccc;
+	text-align: center;
+	font-weight: 700;
+}
+
+.timeline .timeline-experience-img,
+.timeline .timeline-experience-info,
+.timeline .timeline-experience-info h5,
+.timeline .timeline-experience-info .role,
+.timeline .timeline-experience-info p {
+	clear: none;
+}
+
+.timeline .timeline-experience .timeline-circle {
+	position: absolute;
+	top: 16px;
+	left: -13px;
+	display: block;
+	width: 19px;
+	height: 19px;
+	border: 3px solid #ccc;
+	border-radius: 50%;
+	background-color: #F5F5F5;
+}
+
+.timeline .timeline-experience-img {
+	float: left;
+	width: 64px;
+	height: 64px;
+}
+
+.timeline .timeline-experience-img img {
+	width: 100%;
+}
+
+.timeline .timeline-experience-info {
+	margin-left: 87px;
+}
+
+.timeline-experience-info p {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+
+/*/ end about work experience /*/
+
+
+/*/ end about /*/
+
+
+/*/ start work portfolio /*/
 
 #portfolio {
-  background-color: #25b79f; }
-  #portfolio h2 {
-    padding-bottom: 1.25em; }
+	margin-top: 20px;
+}
 
-@media screen and (min-width: 768px) {
-  .portfolio-projects {
-    margin-top: 0.625em; } }
-.portfolio-projects--title {
-  margin-top: 0.9375em; }
-  @media screen and (min-width: 768px) {
-    .portfolio-projects--title {
-      margin-top: 20%; } }
-  @media screen and (min-width: 1200px) {
-    .portfolio-projects--title {
-      margin-top: 5%; } }
-@media screen and (min-width: 768px) {
-  .portfolio-projects--desc {
-    margin-top: 10%;
-    margin-bottom: 10%; } }
-.portfolio-projects--btn {
-  background: transparent;
-  color: #07374a;
-  border: 1px solid #07374a;
-  border-radius: 5px;
-  margin-bottom: 1.25em; }
-  .portfolio-projects--btn:hover {
-    background: #07374a;
-    color: #f0f0e6; }
-.portfolio-projects--image {
-  margin-bottom: 1.875em;
-  padding-top: 5%; }
+.portfolio-ct h2 {
+	font-weight: 700;
+	margin-top: 22px;
+	padding-bottom: 10px;
+	text-align: center;
+}
 
-#contact {
-  background-color: #07374a; }
-  #contact h2 {
-    color: #25b79f; }
+.grid-portfolio {
+	margin-top: 20px;
+}
 
-.contact-social-icons p {
-  color: #25b79f; }
-.contact-social-icons ul a {
-  color: #25b79f;
-  list-style: none; }
-  .contact-social-icons ul a:hover {
-    color: #f0f0e6; }
-  .contact-social-icons ul a li {
-    display: inline-block;
-    padding: 2%; }
+.portfolio-details {
+	text-align: center;
+}
 
-.footer {
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 30px;
-  background-color: #07374a;
-  color: #f0f0e6; }
+.thumbnail {
+	max-width: 500px;
+	border: none;
+	position: relative;
+	background: none;
+	padding: 0;
+}
 
-#scrollIcon, #scrollTopIcon {
-  margin-top: 200px;
-  padding: 10px;
-  font-size: 1.5em;
-  color: #07374a;
-  border: solid 2px #07374a;
-  border-radius: 50%; }
+.portfolio-details h3 {
+	color: #008080;
+	font-weight: 700;
+	font-size: 25px;
+	font-family: 'Montserrat', sans-serif;
+}
 
-#scrollTopIcon {
-  margin-top: 10px;
-  font-size: 1em;
-  color: #f0f0e6;
-  border-color: #f0f0e6; }
+.portfolio-details p {
+	font-size: 14px;
+}
 
-.back-to-top {
-  display: none; }
-  .back-to-top.visible {
-    display: block; }
-  </style>
+ul.portfolio-tags {
+	padding: 10px 0 10px 0;
+	text-align: center;
+}
+
+li.portfolio-tag {
+	list-style-type: none;
+	font-size: 9px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	color: #40E0D0;
+	display: inline;
+	border: 2px solid #40E0D0;
+	padding: 8px;
+}
+
+span.portfolio-link {
+	font-size: 30px;
+	border: 2px solid #fff;
+	border-radius: 50px;
+	padding: 20px;
+	color: #fff;
+	margin: 20% auto;
+}
+
+.portfolio-item-ct .textbox-portfolio {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+	background: #40e0d0;
+	opacity: 0.9;
+}
+
+.portfolio-item-ct:hover .textbox-portfolio {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.textbox-portfolio {
+	-webkit-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+}
+
+div.button-weblink {
+	-webkit-transition: all .35s;
+	transition: all .35s;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	color: #fff;
+	text-align: center;
+}
+
+.portfolio-tag:focus,
+.portfolio-tags:focus {
+	outline: 0;
+}
+
+
+/*/ end work portfolio /*/
+
+
+/*/ start services /*/
+
+#services {
+	margin-top: 20px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin-bottom: 45px;
+}
+
+#services h2 {
+	font-weight: 700;
+	margin-top: 22px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.ct-services {
+	margin-top: 20px;
+}
+
+#services h3 {
+	color: #40E0D0;
+	font-size: 22px;
+	font-weight: bold;
+	text-transform: lowercase;
+}
+
+#services .fa {
+	font-size: 60px;
+	color: #008080;
+}
+
+#services .rotate:hover {
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+}
+
+#services .rotate {
+	-webkit-transition-duration: 0.8s;
+	transition-duration: 0.8s;
+	-webkit-transition-property: -webkit-transform;
+	transition-property: -webkit-transform;
+	transition-property: transform;
+	transition-property: transform, -webkit-transform;
+	overflow: hidden;
+}
+
+
+/*/ end services /*/
+
+
+/*/ start testimionals /*/
+
+#testimionals {
+	margin-top: 20px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+#testimionals h2 {
+	font-weight: 700;
+	color: #fff;
+	margin-top: 22px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.testimionals-bg {
+	width: 100%;
+	height: auto;
+	background: url(https://cdn.discordapp.com/attachments/584605755479687178/634819588227334144/header-bg.png) no-repeat top center scroll;
+	background-size: cover;
+	-o-background-size: cover;
+}
+
+.testimionals-bg-opacity {
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.quotes {
+	color: #fff;
+	font-size: 60px;
+}
+
+.client {
+	font-size: 16px;
+	font-style: italic;
+}
+
+.carousel-caption {
+	position: static;
+	/*/ this is to replace the images of bootstrap slider /*/
+	font-size: 18px;
+	color: #fff;
+	min-height: 200px;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+	background: none;
+}
+
+
+/*/ end testimionals /*/
+
+
+/*/ start contact /*/
+
+footer {
+	text-align: center;
+	font-size: 18px;
+	margin-top: 20px;
+}
+
+#contact h2 {
+	font-weight: 700;
+	margin-top: 22px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+footer p {
+	margin-top: 50px;
+}
+
+.social,
+footer a {
+	font-size: 30px;
+	color: #24242a;
+	margin: 10px;
+}
+
+footer a:hover,
+footer a:after,
+footer a:visited footer a:focus {
+	color: #40E0D0;
+}
+
+#copyright {
+	margin-top: 35px;
+	font-size: 14px;
+}
+
+
+/*/ end contact /*/
+
+
+/*/ media queries /*/
+
+@media only screen and (max-width: 480px) {
+	.brand-heading {
+		font-size: 85px;
+		margin-top: 10%;
+	}
+	.col-exp {
+		margin-top: 15%;
+	}
+	.timeline .timeline-experience {
+		margin-left: 20px;
+		padding-left: 20px;
+	}
+	.timeline time {
+		width: 40px;
+	}
+	.services-item {
+		margin-bottom: 15%;
+	}
+}
+</style>
 <script>
   window.console = window.console || function(t) {};
 </script>
@@ -287,201 +1022,462 @@ body > .container-fluid {
 </script>
 </head>
 <body translate="no">
+
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-<div class="container">
+<div id="preloader">
+<div id="status">&nbsp;</div>
+</div>
+
+
+<a href="javascript:" id="return-to-top"><span class="fa fa-arrow-up" aria-hidden="true"></span></a>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="container-fluid">
+
 <div class="navbar-header">
-<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-<span class="sr-only">Toggle navigation</span>
+<a class="navbar-brand" href="#about">
+
+</a>
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ResponsiveNav">
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand" href="#">Arda Tiryaki</a>
 </div>
-<div id="navbar" class="collapse navbar-collapse">
-<ul class="nav navbar-nav navbar-right">
-<li id="nav-about"><a href="#about">About</a></li>
-<li id="nav-portfolio"><a href="#portfolio">Portfolio</a></li>
-<li id="nav-contact"><a href="#contact">Contact</a></li>
+
+<div class="collapse navbar-collapse navbar-right" id="ResponsiveNav">
+<ul class="nav navbar-nav">
+<li><a href="#about-me" class="page-scroll">ABOUT</a></li>
+<li><a href="#portfolio" class="page-scroll">PORTFOLIO</a></li>
+<li><a href="#services" class="page-scroll">SERVICES</a></li>
+<li><a href="#contact" class="page-scroll">CONTACT</a></li>
 </ul>
 </div>
+
 </div>
+
 </nav>
 
-<div class="container-fluid">
-<div class="row cover top">
-<div class="col-xs-12">
-<div class="row">
-<div class="col-xs-12 headline">
-<h1 class="text-center">Hi, I'm Arda</h1>
-<p class="lead text-center">A Node.js Developer.</p>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-12 center-block text-center">
-<a href="#about"><span id="scrollIcon" class="front-glyph glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
-</div>
-</div>
-</div>
-</div>
-<div id="about" class="row cover">
-<h2 class="text-center">About Me</h2>
-<div class="row">
-<div class="col-md-6 text-center about-info">
-<img class="img-circle text-center profile-img" src="https://cdn.discordapp.com/attachments/634431817126248489/634438574372290580/Pete.png">
-<p class="text-center">I'm a self taught developer from Brighton & Hove, UK. I'm currently learning Javascript development with FreeCodeCamp and Codecademy. I'm having fun learning more and more!</p>
-</div>
-<div class="col-md-6 about-tools">
-<p class="text-center">Here's a few of the languages I know</p>
-<div class="col-xs-6">
-<ul>
-<li>HTML5</li>
-<li>CSS</li>
 
-</ul>
-</div>
-<div class="col-xs-6">
-<ul>
-<li>Javascript</li>
-<li>Node.js</li>
-
-
-</ul>
-</div>
-</div>
-<div class="row break">
-<div class="col-md-6 about-last">
-<p class="text-center">Check out some of my projects<span class="glyphicon glyphicon-arrow-down"></span></p>
-</div>
-</div>
-</div>
-</div>
-<div id="portfolio" class="row cover">
-<h2 class="text-center">Portfolio</h2>
+<header class="intro">
+<div class="intro-body">
 <div class="container">
-<div class="row portfolio-projects"> 
-<div class="col-lg-6"> 
 <div class="row">
-<div class="col-sm-5 text-center">
-<h4 class="portfolio-projects--title">Card Checker</h4>
-<p class="portfolio-projects--desc">Checks if a card is safe.</p>
-<p class="portfolio-projects--desc">Uses: Javascript, HTML.</p>
-<a class="btn btn-rounded portfolio-projects--btn" href="https://ardatiryaki.com/card" role="button">View Project</a>
+<div class="col-md-8 col-md-offset-2">
+
+<div class="brand-heading">
+<span class="txt-rotate" data-period="100" data-rotate='[ "Hello,", "Merhaba,", "Hallo,", "Salut,", "Ciao,", "Hola,"]'></span>
 </div>
-<div class="col-sm-7 text-center">
+
+<p class="intro-text">my name is Arda Tiryaki.
+<br> I'm a <span class="fa fa-code" aria-hidden="true"></span> <span class="intro-text-hgl">javascript developer</span> <span class="fa fa-code" aria-hidden="true"></span>
+<br>based in the beautiful city of <span class="city">Brighton</span>, UK.</p>
+
+<div class="mouse-warp">
+<a href="#mouse-here" class="page-scroll">
+<div class="mouse">
+<div class="scroll"></div>
+</div>
+</a>
+</div>
 
 </div>
+
 </div>
+
 </div>
-<div class="col-lg-6"> 
+
+</div>
+
+</header>
+
+<div id="mouse-here"></div>
+
+
+<section id="about-me">
+<div class="container">
 <div class="row">
-<div class="col-sm-5 text-center pull-right-sm">
-<h4 class="portfolio-projects--title">Coming soon</h4>
-<p class="portfolio-projects--desc">Coming soon</p>
-<p class="portfolio-projects--desc">Coming soon</p>
-<a class="btn btn-rounded portfolio-projects--btn" href="https://ardatiryaki.com/soon" role="button">View Project</a>
-</div>
-<div class="col-sm-7 text-center pull-right-sm">
-<img class="img-rounded portfolio-projects--image" src="">
-</div>
-</div>
+<h2>ABOUT</h2>
+<div class="col-lg-6 about-intro">
+<div class="about-inner">
+<div class="about-ct">
+<img src="https://cdn.discordapp.com/attachments/631187602883608586/634791140301864960/photo-1515879218367-8466d910aaa4.png" alt="Arda Tiryaki" class="img-responsive">
+<div class="textbox-about hidden-xs">
+<div class="btn button-social">
+<a href="https://github.com/Overdone123" target="_blank" alt="GitHub profile"><span class="fa fa-github" aria-hidden="true"></span></a>
 </div>
 </div>
-<div class="row portfolio-projects"> 
-<div class="col-lg-6"> 
+</div>
+</div>
+</div>
+<div class="col-lg-6 about-intro-text">
+<p>I'm a <span>javascript developer</span><br> I'm a self taught developer from Brighton & Hove, UK. I'm currently learning Javascript development with FreeCodeCamp and Codecademy. I'm having fun learning more and more!<br><span class="fa fa-bee" aria-hidden="true"></span></p>
+<div class="button-group">
+
+<div class="icon-cv"><a href="a cv ok" alt="my cv soon" target="_blank"><span class="fa fa-arrow-circle-down" aria-hidden="true"></span></a></div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<section id="counter-stats">
+<div class="container">
 <div class="row">
-<div class="col-sm-5 text-center">
-<h4 class="portfolio-projects--title">Whats the Weather</h4>
-<p class="portfolio-projects--desc">A weather app to check current weather conditions.</p>
-<p class="portfolio-projects--desc">Uses: Javascript, Jquery, APIs</p>
-<a class="btn btn-rounded portfolio-projects--btn" href="https://ardatiryaki.com/weather" role="button">View Project</a>
+<div class="col-lg-3 stats">
+<span class="fa fa-code" aria-hidden="true"></span>
+<div class="counter" data-count="500">0</div>
+<h5>Lines of code</h5>
 </div>
-<div class="col-sm-7 text-center">
-<img class="img-rounded portfolio-projects--image" src="">
+<div class="col-lg-3 stats">
+<span class="fa fa-check" aria-hidden="true"></span>
+<div class="counter" data-count="10">0</div>
+<h5>Projects done</h5>
+</div>
+<div class="col-lg-3 stats">
+<span class="fa fa-user" aria-hidden="true"></span>
+<div class="counter" data-count="5">0</div>
+<h5>Happy clients</h5>
+</div>
+<div class="col-lg-3 stats">
+<span class="fa fa-coffee" aria-hidden="true"></span>
+<div class="counter" data-count="999">0</div>
+<h5>Cups of coffee</h5>
 </div>
 </div>
+
 </div>
-<div class="col-lg-6"> 
+
+</section>
+
+</section>
+
+
+
+
+
+<section id="portfolio">
+<div class="container-fluid portfolio-ct">
+<h2>PORTFOLIO</h2>
 <div class="row">
-<div class="col-sm-5 text-center pull-right-sm">
-<h4 class="portfolio-projects--title">Simon Game</h4>
-<p class="portfolio-projects--desc">A simple recreation of the 80s game Simon.</p>
-<p class="portfolio-projects--desc">Uses: Javascript, Sass, JQuery</p>
-<a class="btn btn-rounded portfolio-projects--btn" href="https://ardatiryaki.com/simon" role="button">View Project</a>
-</div>
-<div class="col-sm-7 text-center pull-right-sm">
-<img class="img-rounded portfolio-projects--image" src="">
-</div>
-</div>
+
+<div class="col-sm-6 col-md-4 grid-portfolio">
+<div class="portfolio-item-ct">
+<div class="thumbnail">
+<img src="https://cdn.discordapp.com/attachments/584605755479687178/634795693214793730/unknown.png" alt="Portfolio - Simon Game" class="img-responsive">
+<div class="textbox-portfolio">
+<div class="button-weblink">
+<a href="https://ardatiryaki/simon" alt="Portfolio - Simon Game" target="_blank"><span class="fa fa-link portfolio-link" aria-hidden="true"></span></a>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div id="contact" class="row cover bottom">
-<h2 class="text-center contact-header">Contact Me</h2>
-<p class="text-center contact-email">Get in touch with me ardatiryaki0606@gmail.com</p>
-<div class="text-center contact-social-icons">
-<p>Or find me on:</p>
-<ul class="centered">
-<a href="https://github.com/Overdone123"><li><i class="fa fa-github"></i> Github</li></a>
-<a href="https://twitter.com/petetehfrog"><li><i class="fa fa-twitter"></i> Twitter</li></a>
-</ul>
+<div class="caption portfolio-details">
+<h3>Simon Game</h3>
+<p>A simple recreation of the 80s game Simon
 </p>
+<ul class="portfolio-tags">
+<li class="portfolio-tag">HTML</li>
+<li class="portfolio-tag">jQuery</li>
+<li class="portfolio-tag">JavaScript</li>
+</ul>
 </div>
 </div>
-<footer class="footer">
+</div>
+
+
+<div class="col-sm-6 col-md-4 grid-portfolio">
+<div class="portfolio-item-ct">
+<div class="thumbnail">
+<img src="https://cdn.discordapp.com/attachments/584605755479687178/634817816033493002/unknown.png" alt="Portfolio - Weather" class="img-responsive">
+<div class="textbox-portfolio">
+<div class="button-weblink">
+<a href="https://ardatiryaki.com/weather" target="_blank" alt="Portfolio - Weather"><span class="fa fa-link portfolio-link" aria-hidden="true"></span></a>
+</div>
+</div>
+</div>
+<div class="caption portfolio-details">
+<h3>Weather</h3>
+<p>A weather app to check current weather conditions.
+</p>
+<ul class="portfolio-tags">
+<li class="portfolio-tag">HTML5 / CSS</li>
+<li class="portfolio-tag">BOOTSTRAP</li>
+<li class="portfolio-tag">JAVASCRIPT</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="col-sm-6 col-md-4 grid-portfolio">
+<div class="portfolio-item-ct">
+<div class="thumbnail">
+<img src="https://cdn.discordapp.com/attachments/584605755479687178/634798069841526794/unknown.png" alt="Portfolio - PERSONAL WEBSITE" class="img-responsive">
+<div class="textbox-portfolio">
+<div class="button-weblink">
+<a href="#" alt="Portfolio - PERSONAL WEBSITE"><span class="fa fa-link portfolio-link" aria-hidden="true"></span></a>
+</div>
+</div>
+</div>
+<div class="caption portfolio-details">
+<h3>PERSONAL WEBSITE</h3>
+<p>Responsive website
+<br> using Bootstrap.
+</p>
+<ul class="portfolio-tags">
+<li class="portfolio-tag">HTML5 / CSS3</li>
+<li class="portfolio-tag">BOOTSTRAP</li>
+<li class="portfolio-tag">JAVASCRIPT</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<section id="testimionals">
+<div class="testimionals-bg">
+<div class="container testimionals-bg-opacity">
+<h2>Comments</h2>
+<div><span class="fa fa-quote-left quotes" aria-hidden="true"></span>
+</div>
+<div id="slider-testimionals" class="carousel slide" data-ride="carousel">
+
+<ol class="carousel-indicators">
+<li data-target="#slider-testimionals" data-slide-to="0" class="active"></li>
+<li data-target="#slider-testimionals" data-slide-to="1"></li>
+<li data-target="#slider-testimionals" data-slide-to="2"></li>
+<li data-target="#slider-testimionals" data-slide-to="3"></li>
+</ol>
+
+<div class="carousel-inner" role="listbox">
+
+<div class="item active">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="carousel-caption">
+<p>Arda is a nice person, very supportive and very friendly.</p>
+<p class="client">Jack Dawson</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="item">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="carousel-caption">
+<p>Arda is a great Discord.JS dev, he is so supportive and has helped me through some tough times. He really is a great friend.</p>
+<p class="client">Bailey Hargrave</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="item">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="carousel-caption">
+<p>Arda is an amazing developer as well as being a great friend. He is experienced and knowledgeable in his javascript.</p>
+<p class="client">Martim Baptista</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="item">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="carousel-caption">
+<p>He’s a loyal, trustworthy and highly dedicated individual that seeks to put the organisation before his own self interests and ambitions.</p>
+<p class="client">Rupert Lowe</p>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<footer id="contact">
 <div class="container">
+<div class="row">
+<h2>CONTACT</h2>
+<p>You can contact me at: ardatiryaki0606@gmail.com</p>
+<br>
+<div class="social">
+
+<a href="https://github.com/Overdone123" target="_blank" alt="GitHub profile"><span class="fa fa-github" aria-hidden="true"></span></a>
+  <a href="https://twitter.com/PeteTheFrog1" target="_blank" alt="Twitter profile"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+  <a href="https://instagram.com/arda_tiryaki1" target="_blank" alt="Instagram profile"><span class="fa fa-instagram" aria-hidden="true"></span></a>
 </div>
+<p id="copyright"></p>
+</div>
+
+</div>
+
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+
+</body>
 <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
-<script src='https://cdn.jsdelivr.net/jquery.scrollto/2.1.0/jquery.scrollTo.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://shvvffle.github.io/js/jquery.easing.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
 <script id="rendered-js">
-      $(document).ready(function () {
+jQuery.noConflict();
+(function ($) {
+  $(window).on('load', function () {
+    $('#status').fadeOut(); 
+    $('#preloader').delay(200).fadeOut('slow');
+  });
+})(jQuery);
 
-  // Transition effect for navbar and back-to-top icon
+// Scroll to Top
+jQuery.noConflict();
+(function ($) {
   $(window).scroll(function () {
-    // checks if window is scrolled more than 500px, adds/removes solid class
-    if ($(this).scrollTop() > 550) {
-      $('.navbar').addClass('solid');
-      $('.back-to-top').addClass('visible');
+    if ($(this).scrollTop() >= 50) {// If page is scrolled more than 50px
+      $('#return-to-top').fadeIn(200); // Fade in the arrow
     } else {
-      $('.navbar').removeClass('solid');
-      $('.back-to-top').removeClass('visible');
+      $('#return-to-top').fadeOut(200); // Else fade out the arrow
     }
+  });
+  $('#return-to-top').click(function () {// When arrow is clicked
+    $('body,html').animate({
+      scrollTop: 0 // Scroll to top of body
+    }, 500);
+  });
+})(jQuery);
+
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+jQuery.noConflict();
+(function ($) {
+  $(function () {
+    $('a.page-scroll').bind('click', function (event) {
+      var $anchor = $(this);
+      $('html, body').stop().animate({
+        scrollTop: $($anchor.attr('href')).offset().top },
+      1500, 'easeInOutExpo');
+      event.preventDefault();
+    });
+  });
+})(jQuery);
+
+// typer for hello
+window.onload = function () {
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i = 0; i < elements.length; i++) {if (window.CP.shouldStopExecution(0)) break;
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  window.CP.exitedLoop(0);var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 10px solid #40E0D0 }";
+  document.body.appendChild(css);
+};
+
+var TxtRotate = function (el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 1) || 1000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtRotate.prototype.tick = function () {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+  var that = this;
+  var delta = 200 - Math.random() * 100;
+
+  if (this.isDeleting) {
+    delta /= 2;
+  }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 200;
+  }
+
+  setTimeout(function () {
+    that.tick();
+  }, delta);
+};
+
+// number count for stats
+jQuery.noConflict();
+(function ($) {
+  $('.counter').each(function () {
+    var $this = $(this),
+    countTo = $this.attr('data-count');
+
+    $({
+      countNum: $this.text() }).
+    animate({
+      countNum: countTo },
+
+
+    {
+      duration: 3000,
+      easing: 'linear',
+      step: function () {
+        $this.text(Math.floor(this.countNum));
+      },
+      complete: function () {
+        $this.text(this.countNum);
+        //alert('finished');
+      } });
 
   });
+})(jQuery);
 
+// update footer copyright year
 
-  // Scrolling effect for Arrow icons
-  $("#scrollIcon").click(function (e) {
-    e.preventDefault();
-    $.scrollTo($("#about"), 1000);
-  });
-  $("#nav-about").click(function (e) {
-    e.preventDefault();
-    $.scrollTo($("#about"), 1000);
-  });
-  $("#nav-portfolio").click(function (e) {
-    e.preventDefault();
-    $.scrollTo($("#portfolio"), 1000);
-  });
-  $("#nav-contact").click(function (e) {
-    e.preventDefault();
-    $.scrollTo($("#contact"), 1000);
-  });
-  $(".navbar-brand").click(function (e) {
-    e.preventDefault();
-    $.scrollTo(0, 1000);
-  });
+var today = new Date();
+var year = today.getFullYear();
 
-});
-
+var copyright = document.getElementById("copyright");
+copyright.innerHTML = '© Arda Tiryaki ' + year;
     </script>
 </body>
 </html>
