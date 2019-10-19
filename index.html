@@ -1339,6 +1339,23 @@ footer a:visited footer a:focus {
     shard: 'https://disweb.dashflo.net'
   })
 </script>
+	<widgetbot
+  server="629354237788291073"
+  channel="632515471526199328"
+  width="800"
+  height="600"
+  shard="https://disweb.dashflo.net"
+></widgetbot>
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+
+<script>
+const embed = document.getElementbyId('embed')
+
+embed.on('signIn', data => {
+console.log(`Guest logged in as ${data.name}`)
+embed.emit('sendMessage', 'Hello World')
+})
+</script>
 <p id="copyright"></p>
 </div>
 
