@@ -1332,7 +1332,23 @@ footer a:visited footer a:focus {
   <a href="https://instagram.com/arda_tiryaki1" target="_blank" alt="Instagram profile"><span class="fa fa-instagram" aria-hidden="true"></span></a>
 </div>
 	<br> </br>
-	<iframe src="https://discordapp.com/widget?id=629354237788291073&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+<widgetbot
+  server="629354237788291073"
+  channel="632515471526199328"
+  width="800"
+  height="600"
+  shard="https://disweb.dashflo.net"
+></widgetbot>
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+
+<script>
+const embed = document.getElementbyId('embed')
+
+embed.on('signIn', data => {
+console.log(`Guest logged in as ${data.name}`)
+embed.emit('sendMessage', 'Hello World')
+})
+</script>
 <p id="copyright"></p>
 </div>
 
