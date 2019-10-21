@@ -475,6 +475,21 @@ $(document).ready(function () {
       console.log('failed');
       if (difficulty === 'normal') {
         //Display alert to let user know they got it wrong and to try again
+        sweetAlert({
+          title: 'Oops, that wasn\'t right',
+          text: 'Would you like to try again?',
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#6BE2F9',
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No',
+          closeOnConfirm: true,
+          closeOnCancel: true,
+          customClass: 'simonAlert' },
+        function (confirmed) {
+          if (confirmed) {
+            //reset playerSequence
+            playerSequence = [];
 
             //replay the same aiSequence
             turn = 'computer';
