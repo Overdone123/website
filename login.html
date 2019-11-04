@@ -5,107 +5,171 @@
 <meta charset="UTF-8">
 <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
 <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<title>CodePen - Flat HTML5/CSS3 Login Form</title>
+<title>CodePen - Dribbble Challenge: Sign Up/Login</title>
 <style>
-  @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+  * {
+  margin: 0;
+  padding: 0;
+}
 
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
+body {
+  background: url(http://eskipaper.com/images/mountain-landscape-2.jpg);
+  font-family: 'PT Sans';
 }
-.form {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-.form input {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-.form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: #4CAF50;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
+
+button:hover {
   cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
-}
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-}
-.form .message a {
-  color: #4CAF50;
-  text-decoration: none;
-}
-.form .register-form {
+
+.hide {
   display: none;
 }
-.container {
+
+.wrapper {
+  background: rgba(0, 0, 0, 0.6);
   position: relative;
-  z-index: 1;
-  max-width: 300px;
+  width: 800px;
+  height: 300px;
   margin: 0 auto;
+  margin-top: 150px;
 }
-.container:before, .container:after {
-  content: "";
+
+.left,
+.right {
+  width: 50%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.back-header,
+.back-p {
+  margin: 20px;
+  color: #fafafa;
+  letter-spacing: 1px;
+}
+
+.back-header {
+  font-family: 'Ubuntu';
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.back-p {
+  font-family: 'PT Sans';
+  letter-spacing: 1px;
+  font-size: 20px;
+  line-height: 30px;
+  margin-right: 60px;
+}
+
+.background button {
+  position: absolute;
+  left: 0;
+  bottom: 60px;
+}
+
+.background .left button {
+  left: 20px;
+}
+
+.background .right button {
+  left: 420px;
+}
+
+.form-container {
+  position: absolute;
+  width: 375px;
+  height: 350px;
+  background-color: white;
+  top: -25px;
+  left: 10px;
+  box-shadow: 9px 13px 16px 0px rgba(0, 0, 0, 0.75);
+}
+
+.sign-up,
+.login {
+  margin: 40px;
+}
+
+.back-btn {
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  border: 1px solid white;
+  color: #fafafa;
+  transition: .3s all;
+}
+
+.back-btn:hover {
+  background-color: #145977;
+  border: 1px solid #145977;
+}
+
+.form-btn {
   display: block;
-  clear: both;
+  margin-top: 30px;
+  width: 150px;
+  height: 35px;
+  font-size: 18px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #FC7D5F;
+  color: #fafafa;
+  transition: .4s all;
 }
-.container .info {
-  margin: 50px auto;
-  text-align: center;
+
+.sign-up button:hover,
+.login button:hover {
+  background-color: #C53716;
 }
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
+
+.form-header {
+  font-size: 32px;
+  color: #FC7D5F;
 }
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
+
+.form-container input {
+  margin-top: 20px;
+  width: 80%;
+  height: 30px;
+  border: 0;
+  border-bottom: 1px solid #888;
 }
-.container .info span a {
-  color: #000000;
+
+input[type="text"],
+input[type="email"] {
+  color: #555;
+}
+
+.form-container i {
+  margin-left: 10px;
+  margin-bottom: -5px;
+  color: #888;
+}
+
+.login button,
+.forgot {
+  display: inline-block;
+}
+
+.forgot {
+  margin-left: 15px;
   text-decoration: none;
+  color: black;
 }
-.container .info span .fa {
-  color: #EF3B3A;
-}
-body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+
+.forgot:hover {
+  color: #FC7D5F;
+  text-decoration: underline;
 }
 </style>
 <script>
@@ -118,28 +182,60 @@ body {
 </script>
 </head>
 <body translate="no">
-<div class="login-page">
-<div class="form">
-<form class="register-form">
-<input type="text" placeholder="name" />
-<input type="password" placeholder="password" />
-<input type="text" placeholder="email address" />
-<button>create</button>
-<p class="message">Already registered? <a href="#">Sign In</a></p>
-</form>
-<form class="login-form">
-<input type="text" placeholder="username" />
-<input type="password" placeholder="password" />
-<button>login</button>
-<p class="message">Not registered? <a href="#">Create an account</a></p>
-</form>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans|Ubuntu:400,500" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<body>
+<div class="wrapper">
+<div class="background">
+<div class="left">
+<h2 class="back-header">Dont have an account yet?</h2>
+<p class="back-p">Well doggonit you should sign up today!</p>
+<button class="back-btn signup-but">SIGN UP</button>
+</div>
+<div class="right">
+<h2 class="back-header">Do you already have an account?</h2>
+<p class="back-p">Well doggonit let's get you logged in!</p>
+<button class="back-btn login-but">LOGIN</button>
 </div>
 </div>
+<div class="form-container">
+<div class="sign-up">
+<h2 class="form-header">SIGN UP</h2>
+<input type="text" id="user" placeholder="Enter Full Name"><i class="fa fa-user"></i></input>
+<input type="text" id="email" placeholder="Email"><i class="fa fa-envelope-o"></i></input>
+<input type="password" id="pass" placeholder="Password"><i class="fa fa-lock"></i></input>
+<button class="form-btn">SIGN UP</button>
+</div>
+<div class="login hide">
+<h2 class="form-header">LOGIN</h2>
+<input type="text" id="email" placeholder="Email"><i class="fa fa-envelope-o"></i></input>
+<input type="password" id="pass" placeholder="Password"><i class="fa fa-lock"></i></input>
+<button class="form-btn">LOGIN</button>
+<a class="forgot" href="#">Forgot password</a>
+</div>
+</div>
+</div>
+</body>
 <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script id="rendered-js">
-      $('.message a').click(function () {
-  $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+      $(document).ready(function () {
+  var signUp = $('.signup-but');
+  var logIn = $('.login-but');
+
+  signUp.on('click', function () {
+    $('.login').fadeOut('slow').css('display', 'none');
+    $('.sign-up').fadeIn('slow');
+
+    $('.form-container').animate({ left: '10px' }, 'slow');
+  });
+
+  logIn.on('click', function () {
+    $('.login').fadeIn('slow');
+    $('.sign-up').fadeOut('slow').css('display', 'none');
+
+    $('.form-container').animate({ left: '400px' }, 'slow');
+  });
 });
       //# sourceURL=pen.js
     </script>
