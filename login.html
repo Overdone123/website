@@ -1,243 +1,175 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<title>CodePen - Dribbble Challenge: Sign Up/Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  * {
-  margin: 0;
-  padding: 0;
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-body {
-  background: url(http://eskipaper.com/images/mountain-landscape-2.jpg);
-  font-family: 'PT Sans';
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
 button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
   cursor: pointer;
 }
 
-.hide {
-  display: none;
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
 }
 
-.wrapper {
-  background: rgba(0, 0, 0, 0.6);
-  position: relative;
-  width: 800px;
-  height: 300px;
-  margin: 0 auto;
-  margin-top: 150px;
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
 }
 
-.left,
-.right {
-  width: 50%;
-}
-
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
-}
-
-.back-header,
-.back-p {
-  margin: 20px;
-  color: #fafafa;
-  letter-spacing: 1px;
-}
-
-.back-header {
-  font-family: 'Ubuntu';
-  font-size: 30px;
-  font-weight: 500;
-}
-
-.back-p {
-  font-family: 'PT Sans';
-  letter-spacing: 1px;
-  font-size: 20px;
-  line-height: 30px;
-  margin-right: 60px;
-}
-
-.background button {
-  position: absolute;
-  left: 0;
-  bottom: 60px;
-}
-
-.background .left button {
-  left: 20px;
-}
-
-.background .right button {
-  left: 420px;
-}
-
-.form-container {
-  position: absolute;
-  width: 375px;
-  height: 350px;
-  background-color: white;
-  top: -25px;
-  left: 10px;
-  box-shadow: 9px 13px 16px 0px rgba(0, 0, 0, 0.75);
-}
-
-.sign-up,
-.login {
-  margin: 40px;
-}
-
-.back-btn {
-  width: 100px;
-  height: 30px;
-  font-size: 15px;
-  border: 0;
-  border-radius: 3px;
-  background: transparent;
-  border: 1px solid white;
-  color: #fafafa;
-  transition: .3s all;
-}
-
-.back-btn:hover {
-  background-color: #145977;
-  border: 1px solid #145977;
-}
-
-.form-btn {
-  display: block;
-  margin-top: 30px;
-  width: 150px;
-  height: 35px;
-  font-size: 18px;
-  border: 0;
-  border-radius: 3px;
-  background-color: #FC7D5F;
-  color: #fafafa;
-  transition: .4s all;
-}
-
-.sign-up button:hover,
-.login button:hover {
-  background-color: #C53716;
-}
-
-.form-header {
-  font-size: 32px;
-  color: #FC7D5F;
-}
-
-.form-container input {
-  margin-top: 20px;
-  width: 80%;
-  height: 30px;
-  border: 0;
-  border-bottom: 1px solid #888;
-}
-
-input[type="text"],
-input[type="email"] {
-  color: #555;
-}
-
-.form-container i {
-  margin-left: 10px;
-  margin-bottom: -5px;
-  color: #888;
-}
-
-.login button,
-.forgot {
-  display: inline-block;
-}
-
-.forgot {
-  margin-left: 15px;
-  text-decoration: none;
-  color: black;
-}
-
-.forgot:hover {
-  color: #FC7D5F;
-  text-decoration: underline;
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
 }
 </style>
-<script>
-  window.console = window.console || function(t) {};
-</script>
-<script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
 </head>
-<body translate="no">
-<link href="https://fonts.googleapis.com/css?family=PT+Sans|Ubuntu:400,500" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <body>
-<div class="wrapper">
-<div class="background">
-<div class="left">
-<h2 class="back-header">Dont have an account yet?</h2>
-<p class="back-p">Well doggonit you should sign up today!</p>
-<button class="back-btn signup-but">SIGN UP</button>
-</div>
-<div class="right">
-<h2 class="back-header">Do you already have an account?</h2>
-<p class="back-p">Well doggonit let's get you logged in!</p>
-<button class="back-btn login-but">LOGIN</button>
-</div>
-</div>
-<div class="form-container">
-<div class="sign-up">
-<h2 class="form-header">SIGN UP</h2>
-<input type="text" id="user" placeholder="Enter Full Name"><i class="fa fa-user"></i></input>
-<input type="text" id="email" placeholder="Email"><i class="fa fa-envelope-o"></i></input>
-<input type="password" id="pass" placeholder="Password"><i class="fa fa-lock"></i></input>
-<button class="form-btn">SIGN UP</button>
-</div>
-<div class="login hide">
-<h2 class="form-header">LOGIN</h2>
-<input type="text" id="email" placeholder="Email"><i class="fa fa-envelope-o"></i></input>
-<input type="password" id="pass" placeholder="Password"><i class="fa fa-lock"></i></input>
-<button class="form-btn">LOGIN</button>
-<a class="forgot" href="#">Forgot password</a>
-</div>
-</div>
-</div>
-</body>
-<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
-<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script id="rendered-js">
-      $(document).ready(function () {
-  var signUp = $('.signup-but');
-  var logIn = $('.login-but');
 
-  signUp.on('click', function () {
-    $('.login').fadeOut('slow').css('display', 'none');
-    $('.sign-up').fadeIn('slow');
+<h2>Modal Login Form</h2>
 
-    $('.form-container').animate({ left: '10px' }, 'slow');
-  });
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
-  logIn.on('click', function () {
-    $('.login').fadeIn('slow');
-    $('.sign-up').fadeOut('slow').css('display', 'none');
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
 
-    $('.form-container').animate({ left: '400px' }, 'slow');
-  });
-});
-      //# sourceURL=pen.js
-    </script>
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
 </body>
 </html>
