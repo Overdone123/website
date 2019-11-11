@@ -1,10 +1,10 @@
 <body>
   <h1> Computer Science Task</h1>
 <figure>
-  <figcaption>Free code</figcaption>
+  <figcaption>Your code title</figcaption>
   <pre>
-    <code>
-import random
+    <code contenteditable spellcheck="false">
+  import random
 NToGuess = random.randint(1,100)
 #print(NToGuess)
 totalGuess = 1
@@ -20,3 +20,16 @@ print('Total Guess:', totalGuess)
     </code>
   </pre>
 </figure>
+<style>
+  pre, code {
+  font-family: monospace, monospace;
+}
+pre {
+  overflow: auto;
+}
+pre > code {
+  display: block;
+  padding: 1rem;
+  word-wrap: normal;
+}
+  </style>
