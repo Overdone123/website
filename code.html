@@ -1,9 +1,49 @@
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+  <style id="compiled-css" type="text/css">
+      pre {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 3px solid #f2334c;
+  color: #666;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
+}
+  </style>
+
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">//<![CDATA[
+
+    window.onload=function(){
+      
+
+
+    }
+
+  //]]></script>
+
+</head>
 <body>
-  <h1> Computer Science Task</h1>
-<figure>
-  <figcaption>Free code</figcaption>
+    <body>
   <pre>
-    <code contenteditable spellcheck="false">
+        <code>
 import random
 NToGuess = random.randint(1,100)
 #print(NToGuess)
@@ -17,19 +57,22 @@ while N!=NToGuess:
     N = int(input('Please enter a number:'))
     totalguess = totalGuess + 100
 print('Total Guess:', totalGuess)
-    </code>
-  </pre>
-</figure>
-<style>
-  pre, code {
-  font-family: monospace, monospace;
-}
-pre {
-  overflow: auto;
-}
-pre > code {
-  display: block;
-  padding: 1rem;
-  word-wrap: normal;
-}
-  </style>
+        </code>
+    </pre>
+</body>
+
+  
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "z1vcay42"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+</body>
+</html>
