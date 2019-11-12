@@ -64,8 +64,17 @@ while balance>=0.2:
             balance = 0
             print("LOOOOL you lost bye xx")
             break
-    elif (s1 ==)
-    
+    elif (s1 == "Skull" and s2 == "Skull") or (s2 == "Skull" and s3 == "Skull") or (s1 == "Skull" and s3 == "Skull"):
+        balance = balance - 1
+    elif s1 == s2 and s2 == s3:
+        balance = balance + 1 
+    elif s1 == s2 or s1 == s3 or s2 == s3:
+        balance = balance + 0.5
+    elif balance<=0:
+        print("lol you lost everything bye")
+        break
+    print('Balance:',balance)
+        
 </pre>
 </body>
 
