@@ -44,18 +44,28 @@
     <body>
 <pre class="brush: python" title="Python code: Copy for free code - Only to be used in BMS.">
 import random
-NToGuess = random.randint(1,100)
-#print(NToGuess)
-totalGuess = 1
-N = int(input('Please enter a number:'))
-while N!=NToGuess:
-    if N>NToGuess:
-        print('Too big - Go lower')
+symbols = ["Cherry","Bell","Lemon","Orange","Star","Skull"]
+balance = 1 
+while balance>=0.2:
+    s1 = random.choice(symbols)
+    s2 = random.choice(symbols)
+    s3 = random.choice(symbols)
+    print("Press enter to roll or 'q' to quit.")
+    exit = input()
+    if exit == 'q':
+        print('Good bye, your balance is:', balance)
+        break
     else:
-            print('Too Low - Go Higher')
-    N = int(input('Please enter a number:'))
-    totalguess = totalGuess + 100
-print('Total Guess:', totalGuess)
+        balance = balance - 0.2 
+    print(s1,s2,s3)
+    if s1 == "Bell" and s2 == "Bell" and s3 == "Bell":
+        balance = balance + 5
+    elif s1 == "Skull" and s2 == "Skull" and s3 == "Skull":
+            balance = 0
+            print("LOOOOL you lost bye xx")
+            break
+    elif (s1 ==)
+    
 </pre>
 </body>
 
